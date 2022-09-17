@@ -18,6 +18,9 @@ public:
 	void lock();
 	bool try_lock();
 	void unlock();
+	friend bool operator>(const HierarchicalMutex &m1, const HierarchicalMutex &m2);
+	friend bool operator<(const HierarchicalMutex &m1, const HierarchicalMutex& m2);
+
 };
 class HierarchyViolation :public std::exception
 {
