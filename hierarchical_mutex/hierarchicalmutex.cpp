@@ -36,3 +36,11 @@ void HierarchicalMutex::unlock()
 	highiestPriority = previousPriority;
 	internalMutex.unlock();
 }
+bool operator>(const HierarchicalMutex& m1, const HierarchicalMutex& m2)
+{
+	return m1.currentPriority > m2.currentPriority;
+}
+bool operator<(const HierarchicalMutex& m1, const HierarchicalMutex& m2)
+{
+	return m1.currentPriority < m2.currentPriority;
+}
